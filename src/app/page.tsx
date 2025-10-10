@@ -49,6 +49,7 @@ export default async function Home() {
     title,
     client,
     role,
+    year,
     introText,
     compressedVideo,
     longVideo,

@@ -105,21 +105,52 @@ export function VideoCard({ project, isSelected, onOpen, onClose }: Props) {
               <div className="content-container">
                 <div className="card-title-container">
                   <h2 className="card-title">{project.client}</h2>
-                  <div className="card-category">{project.title}</div>
+                  <div className="card-category">{project.title}<br/>{project.year}</div>
                 </div>
                 {project.introText ? <p>{project.introText}</p> : null}
-              {project.longVideo ? (
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  style={{ width: "100%", marginTop: 16 }}
-                >
-                  <source src={project.longVideo} type="video/mp4" />
-                </video>
-              ) : null}
+                {project.longVideo ? (
+                  project.longVideo.includes("youtube.com") || project.longVideo.includes("youtu.be") ? (
+                    <div
+                      style={{
+                        position: "relative",
+                        paddingBottom: "56.25%", // 16:9 ratio
+                        height: 0,
+                        overflow: "hidden",
+                        marginTop: 16,
+                      }}
+                    >
+                      <iframe
+                        src={
+                          project.longVideo.includes("watch?v=")
+                            ? project.longVideo.replace("watch?v=", "embed/")
+                            : project.longVideo.replace("youtu.be/", "www.youtube.com/embed/")
+                        }
+                        title="YouTube video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      style={{ width: "100%", marginTop: 16 }}
+                    >
+                      <source src={project.longVideo} type="video/mp4" />
+                    </video>
+                  )
+                ) : null}
               {gallery.length > 0 ? (
                 <div style={{ marginTop: 24 }}>
                   <h3 style={{ marginBottom: 12 }}>Gallery</h3>
@@ -161,7 +192,7 @@ export function VideoCard({ project, isSelected, onOpen, onClose }: Props) {
       {/* Main view titles under cards */}
       <div className={`main-title-container ${isSelected ? 'blurred' : ''}`}>
         <h2 className="main-title">{project.client}</h2>
-        <div className="main-category">{project.title}</div>
+        <div className="main-category">{project.title}<br/>{project.year}</div>
       </div>
 
       {/* Gallery Modal */}

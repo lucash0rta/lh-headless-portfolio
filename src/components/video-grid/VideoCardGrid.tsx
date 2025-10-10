@@ -16,6 +16,7 @@ export interface ProjectItem {
   title: string;
   client: string;
   role?: string;
+  year: number;
   introText?: string;
   compressedVideo?: string | null;
   longVideo?: string | null;
