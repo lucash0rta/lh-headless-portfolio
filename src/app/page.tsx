@@ -2,6 +2,8 @@ import { client } from '../../lib/sanity'
 import Image from 'next/image'
 import GradualBlur from '../components/GradualBlur'
 import VideoCardGrid from '../components/video-grid/VideoCardGrid'
+import Footer from '../components/footer'
+ 
 
 interface GalleryImage {
   asset?: {
@@ -27,6 +29,8 @@ interface AboutData {
   title: string
   intro: string
   photoURL: string
+  instagram?: string
+  linkedin?: string
 }
 
 export default async function Home() {
@@ -41,7 +45,9 @@ export default async function Home() {
     name,
     title,
     intro,
-    "photoURL": photo.asset->url
+    "photoURL": photo.asset->url,
+    instagram,
+    linkedin
   }`)
   
   // Fetch projects with the correct capitalization
@@ -160,10 +166,10 @@ export default async function Home() {
     </div>
     
     {/* Page-level blur at the bottom covering 30% of viewport */}
-    <GradualBlur
+{/*     <GradualBlur
       target="page"
       position="bottom"
-      height="20vh"
+      height="10vh"
       strength={2}
       divCount={2}
       curve="ease-in"
@@ -171,6 +177,8 @@ export default async function Home() {
       opacity={1}
       zIndex={1000}
     />
+ */}
+    <Footer aboutData={aboutData} />
     </>
   )
 }
