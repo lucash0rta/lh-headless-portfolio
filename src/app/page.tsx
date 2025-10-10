@@ -15,6 +15,7 @@ interface Project {
   title: string
   client: string
   role: string
+  year: number
   introText: string
   compressedVideo?: string
   longVideo?: string | null
