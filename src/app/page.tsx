@@ -50,8 +50,8 @@ export default async function Home() {
     linkedin
   }`)
   
-  // Fetch projects with the correct capitalization
-  const projects: Project[] = await client.fetch(`*[_type == "Projects"]{
+  // Fetch projects with the correct capitalization, sorted by year descending
+  const projects: Project[] = await client.fetch(`*[_type == "Projects"] | order(year desc){
     _id,
     title,
     client,
