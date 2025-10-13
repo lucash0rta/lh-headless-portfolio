@@ -134,7 +134,7 @@
   height: 460px;
   flex: 0 0 40%;
   max-width: 40%;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .card:nth-child(4n + 1),
@@ -256,7 +256,7 @@
 
 /* Main view titles under cards */
 .main-title-container {
-  padding: 20px 0 20px 0;
+  padding: 5px 0 20px 0;
   transition: filter 1s ease, opacity 1s ease;
   display: flex;
   justify-content: space-between;

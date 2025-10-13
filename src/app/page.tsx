@@ -1,8 +1,7 @@
 import { client } from '../../lib/sanity'
-import Image from 'next/image'
-import GradualBlur from '../components/GradualBlur'
 import VideoCardGrid from '../components/video-grid/VideoCardGrid'
 import Footer from '../components/footer'
+import LanyardClient from '../components/lanyard/LanyardClient'
  
 
 interface GalleryImage {
@@ -74,7 +73,7 @@ export default async function Home() {
         {/* Name & Title - Above Showreel */}
         {aboutData && (
           <section style={{
-            marginBottom: '3rem',
+            marginBottom: '1.5rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between'
@@ -109,10 +108,13 @@ export default async function Home() {
           </section>
         )}
 
-        {/* Showreel Section */}
+        {/* Showreel Section - 16:9 Aspect Ratio */}
         {showreelData?.url && (
           <section style={{ 
-            marginBottom: '3rem',
+            marginBottom: '1.5rem',
+            position: 'relative',
+            width: '100%',
+            paddingTop: '56.25%', // 16:9 aspect ratio (9/16 * 100 = 56.25%)
             overflow: 'hidden'
           }}>
             <video
@@ -121,8 +123,11 @@ export default async function Home() {
               loop
               playsInline
               style={{ 
+                position: 'absolute',
+                top: 0,
+                left: 0,
                 width: '100%',
-                maxHeight: '80vh',
+                height: '100%',
                 objectFit: 'cover',
                 display: 'block'
               }}
@@ -136,7 +141,7 @@ export default async function Home() {
         {/* About Intro - Below Showreel */}
         {aboutData?.intro && (
           <section style={{
-            marginBottom: '2rem',
+            marginBottom: '1rem',
             display: 'flex',
             justifyContent: 'center'
           }}>
@@ -159,6 +164,13 @@ export default async function Home() {
                 {aboutData.intro}
               </p>
             </div>
+          </section>
+        )}
+
+        {/* Lanyard Component */}
+        {aboutData && (
+          <section style={{ marginBottom: '3rem' }}>
+            <LanyardClient position={[0, 0, 15]} gravity={[0, -40, 0]} fov={35} />
           </section>
         )}
 
