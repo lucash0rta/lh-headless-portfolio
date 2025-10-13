@@ -15,12 +15,10 @@ declare module 'meshline' {
   export const MeshLineMaterial: unknown;
 }
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshLineGeometry: unknown;
-      meshLineMaterial: unknown;
-    }
+declare module '@react-three/fiber' {
+  interface ThreeElements {
+    meshLineGeometry: unknown;
+    meshLineMaterial: unknown;
   }
 }
 
