@@ -65,7 +65,7 @@ export default function Lanyard({
   return (
     <div className="lanyard-wrapper" style={{
       position: 'absolute',
-      top: '-110px',
+      top: typeof window !== 'undefined' && window.innerWidth < 768 ? '-230px' : '-110px',
       right: '0px',
       width: '100%',
       height: '1200px',
