@@ -10,7 +10,11 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 import './Lanyard.css';
 
-extend({ MeshLineGeometry, MeshLineMaterial });
+// Extend Three.js with meshline components
+extend({ 
+  MeshLineGeometry: MeshLineGeometry as any, 
+  MeshLineMaterial: MeshLineMaterial as any 
+});
 
 // Extend JSX types for meshline components
 /* eslint-disable @typescript-eslint/no-namespace */
