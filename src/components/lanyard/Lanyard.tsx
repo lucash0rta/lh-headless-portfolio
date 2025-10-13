@@ -16,16 +16,7 @@ extend({
   MeshLineMaterial: MeshLineMaterial as any 
 });
 
-// Extend JSX types for meshline components
-/* eslint-disable @typescript-eslint/no-namespace */
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshLineGeometry: any;
-      meshLineMaterial: any;
-    }
-  }
-}
+// Extend JSX types for meshline components are declared in `src/types/global.d.ts`
 
 interface LanyardProps {
   position?: [number, number, number];
@@ -311,9 +302,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, setContainerStyle }: BandProps) {
         </RigidBody>
       </group>
       <mesh ref={band}>
-        {/* @ts-expect-error - meshline components not in JSX types */}
         <meshLineGeometry />
-        {/* @ts-expect-error - meshline components not in JSX types */}
         <meshLineMaterial
           color="white"
           depthTest={false}
