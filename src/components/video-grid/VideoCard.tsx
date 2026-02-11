@@ -29,6 +29,12 @@ export function VideoCard({ project, isSelected, onOpen, onClose }: Props) {
     if (y.get() > dismissDistance) onClose();
   }
 
+  function handleExit(e: React.SyntheticEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    onClose();
+  }
+
   function openGallery(index: number) {
     setCurrentImageIndex(index);
     setGalleryOpen(true);
@@ -96,7 +102,13 @@ export function VideoCard({ project, isSelected, onOpen, onClose }: Props) {
           {isSelected ? (
             <>
               <div className="project-overlay">
-                <button className={`exit-button ${exitButtonVisible ? 'visible' : ''}`} onClick={onClose} aria-label="Close project">
+                <button
+                  type="button"
+                  className={`exit-button ${exitButtonVisible ? 'visible' : ''}`}
+                  onPointerDownCapture={(e) => e.stopPropagation()}
+                  onClick={handleExit}
+                  aria-label="Close project"
+                >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -244,6 +256,5 @@ export function VideoCard({ project, isSelected, onOpen, onClose }: Props) {
     </li>
   );
 }
-
 
 

@@ -30,6 +30,8 @@ interface AboutData {
   photoURL: string
   instagram?: string
   linkedin?: string
+  agdaBannerURL?: string
+  agdaBannerAlt?: string
 }
 
 export default async function Home() {
@@ -45,6 +47,8 @@ export default async function Home() {
     title,
     intro,
     "photoURL": photo.asset->url,
+    "agdaBannerURL": agdaBanner.asset->url,
+    "agdaBannerAlt": agdaBanner.alt,
     instagram,
     linkedin
   }`)

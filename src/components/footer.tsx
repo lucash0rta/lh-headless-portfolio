@@ -5,6 +5,8 @@ interface AboutData {
   photoURL: string
   instagram?: string
   linkedin?: string
+  agdaBannerURL?: string
+  agdaBannerAlt?: string
 }
 
 interface FooterProps {
@@ -74,6 +76,21 @@ export default function Footer({ aboutData }: FooterProps) {
               </a>
             )}
           </div>
+          {aboutData.agdaBannerURL ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={aboutData.agdaBannerURL}
+              alt={aboutData.agdaBannerAlt || 'AGDA membership banner'}
+              style={{
+                display: 'block',
+                margin: '0 auto 0.75rem auto',
+                width: '100%',
+                maxWidth: '360px',
+                height: 'auto',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))',
+              }}
+            />
+          ) : null}
           <div style={{ 
             color: '#000', 
             fontSize: '0.8rem',
