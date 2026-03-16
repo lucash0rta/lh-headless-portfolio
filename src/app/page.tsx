@@ -2,6 +2,8 @@ import { client } from '../../lib/sanity'
 import VideoCardGrid from '../components/video-grid/VideoCardGrid'
 import Footer from '../components/footer'
 import LanyardClient from '../components/lanyard/LanyardClient'
+import MastodonFeed from '../components/mastodon-feed'
+import LatestWriting from '../components/latest-writing'
  
 
 interface GalleryImage {
@@ -30,6 +32,7 @@ interface AboutData {
   photoURL: string
   instagram?: string
   linkedin?: string
+  mastodon?: string
   agdaBannerURL?: string
   agdaBannerAlt?: string
 }
@@ -50,7 +53,8 @@ export default async function Home() {
     "agdaBannerURL": agdaBanner.asset->url,
     "agdaBannerAlt": agdaBanner.alt,
     instagram,
-    linkedin
+    linkedin,
+    mastodon
   }`)
   
   // Fetch projects with the correct capitalization, sorted by year descending
@@ -179,6 +183,8 @@ export default async function Home() {
         )}
 
       <VideoCardGrid projects={projects} />
+      <LatestWriting />
+      <MastodonFeed mastodonUrl={aboutData?.mastodon} />
     </div>
     
     {/* Page-level blur at the bottom covering 30% of viewport */}
