@@ -1,0 +1,11 @@
+.blogpost{
+	border: 2px solid;
+	padding: 10px;
+}
+.blogpostHeader{
+	display: flex;
+	justify-content: space-between;
+}
+.headSite{
+	text-align: center;
+}
