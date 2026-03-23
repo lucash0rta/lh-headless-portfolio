@@ -15,11 +15,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/weblog',
-        destination: '/weblog/index.html',
+        destination: 'https://localpiserver.tail1ff89c.ts.net',
+        permanent: false,
+      },
+      {
+        source: '/weblog/:path*',
+        destination: 'https://localpiserver.tail1ff89c.ts.net/:path*',
+        permanent: false,
       },
     ]
   },
