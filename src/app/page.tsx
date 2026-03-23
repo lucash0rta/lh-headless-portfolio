@@ -3,7 +3,6 @@ import VideoCardGrid from '../components/video-grid/VideoCardGrid'
 import Footer from '../components/footer'
 import LanyardClient from '../components/lanyard/LanyardClient'
 import MastodonFeed from '../components/mastodon-feed'
-import LatestWriting from '../components/latest-writing'
  
 
 interface GalleryImage {
@@ -183,7 +182,6 @@ export default async function Home() {
         )}
 
       <VideoCardGrid projects={projects} />
-      <LatestWriting />
       <MastodonFeed mastodonUrl={aboutData?.mastodon} />
     </div>
     

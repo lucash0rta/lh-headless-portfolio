@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/weblog',
+        destination: '/weblog/index.html',
+      },
+    ]
+  },
 };
 
 export default nextConfig;
