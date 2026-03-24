@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lucas Horta - Animator and Web Designer",
+  metadataBase: new URL('https://lucashorta.com'),
+  title: "Lucas Horta",
   description: "Lucas Horta is an animator and web designer based in Melbourne.",
   icons: {
     icon: '/favicon.ico',
