@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'ABeeZee';
+  src: url('https://wiki.unshittify.cc/fonts/abeezee-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Zarathustra';
+  src: url('https://wiki.unshittify.cc/fonts/zarathustra-v01-webfont.woff') format('woff');
+}
+
 body {
   font-size: 14px;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Zarathustra', serif;
 }
